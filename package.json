@@ -14,5 +14,9 @@
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^4.1.0",
     "gulp-uglify": "^3.0.2"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "swiper": "^5.4.5"
   }
 }
