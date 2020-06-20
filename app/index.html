@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="header">
+    <header class="header" id="top">
         <img class="header_logo" src="img/logo.png" alt="logo">
             <section class="header_contact">
         <a class="header_tel" href="tel:+380999999999">+38(099)999 99 99</a>
@@ -18,15 +18,23 @@
         <section class="main_order-section">
             <section class="main_section-block">
                 <ul class="main_menu">
-                    <li class="main_menu-item">стоимость</li>
-                    <li class="main_menu-item">законность</li>
-                    <li class="main_menu-item">доставка и оплата</li>
-                    <li class="main_menu-item">отзывы</li>
+                    <a class="main_menu-item-link" href="#main-block">
+                        <li class="main_menu-item">стоимость</li>
+                    </a>
+                    <a class="main_menu-item-link" href="#advantages">
+                        <li class="main_menu-item">законность</li>
+                    </a>
+                    <a class="main_menu-item-link" href="#price">
+                        <li class="main_menu-item">доставка и оплата</li>
+                     </a>
+                     <a class="main_menu-item-link" href="#reviews">
+                        <li class="main_menu-item">отзывы</li>
+                    </a>
                 </ul>
                 <h2 class="main_heading"> <span class="colortext">Lorem ipsum</span>  dolor sit amet consectetur adipdscing</h2>
                 <h4 class="main_subheading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium eum eius inventore ex consequatur sed et, ratione, totam ut dolorem qui, aspernatur maxime consequuntur laborum quas rem quos delectus odit.</h4>
         </section>
-        <aside class="main_form-block">
+        <aside class="main_form-block" id="main-block">
             <form class="main_contact-form" action="">
                 <label for="name">ваше имя</label>
                 <input class="main_contact-input" type="text" name="name" placeholder="имя" id="">
@@ -58,13 +66,13 @@
                 </a>
             </section>
         </div>
-        <section class="main_advantages">
+        <section class="main_advantages" id="advantages">
             <h3 class="main_advantages-heading">преимущества</h3>
             <section class="main_advantages-container">
                 <div class="image-container">
                     <img src="img/car.png" alt="car">
-                    <img src="img/number.png" alt="number">
-                    <img src="img/layer.png" alt="/">
+                    <!-- <img src="img/number.png" alt="number">
+                    <img src="img/layer.png" alt="/"> -->
                 </div>
                 <section class="information-container">
                     <section class="information-container-block">
@@ -94,7 +102,7 @@
                 </section>
             </section>
         </section>
-        <section class="price-section">
+        <section class="price-section" id="price">
             <h4 class="price-section_heading">стоимость</h4>
             <div class="price-cards">
                 <div class="price-cards_block">
@@ -114,9 +122,9 @@
                         </li>
                     </ul>
                     <hr>
-                    <h3>399</h3>
-                    <h4>299</h4>
-                    <button>заказать</button>
+                    <h3 class="wrong-price">399 грн</h3>
+                    <h4 class="sale-price">299 грн</h4>
+                    <button class="price-cards_block-btn">заказать</button>
                 </div>
                 <div class="price-cards_block">
                     <h3 class="price-cards_block_heading">lorem ipsum</h3>
@@ -135,26 +143,36 @@
                         </li>
                     </ul>
                     <hr>
-                    <h3>599</h3>
-                    <h4>499</h4>
-                    <button>заказать</button>
+                    <h3 class="wrong-price">599 грн</h3>
+                    <h4 class="sale-price">499 грн</h4>
+                    <button class="price-cards_block-btn">заказать</button>
                 </div>
-                <p><span>*</span>Lorem ipsum dolor sit, amet</p>
             </div>
+            <p class="price-cards_block-content"><span class="colortext">*</span>Lorem ipsum dolor sit, amet</p>
         </section>
-        <section class="main_swiper-container" >
+        <section class="main_swiper-container" id="reviews">
             <h3 class="slider-heading">отзывы</h3>
             <div class="swiper-container" >
                 <div class="swiper-wrapper" >
-                    <div  class="swiper-slide"><img src="img/slider-img.png" alt="/"></div>
-                    <div class="swiper-slide"><img src="img/slider-img.png" alt="/"></div>  
-                    <div class="swiper-slide"><img src="img/slider-img.png" alt="/"></div>
-                    <div  class="swiper-slide"><img src="img/slider-img.png" alt="/"></div>
-                    <div class="swiper-slide"><img src="img/slider-img.png" alt="/"></div>  
-                    <div class="swiper-slide"><img src="img/slider-img.png" alt="/"></div>
+                    <div  class="swiper-slide">
+                        <!-- <img src="img/slider-img.png" alt="/"> -->
+                    </div>
+                    <div class="swiper-slide">
+                        <!-- <img src="img/slider-img.png" alt="/"> -->
+                    </div>  
+                    <div class="swiper-slide">
+                        <!-- <img src="img/slider-img.png" alt="/"> -->
+                    </div>
+                    <div  class="swiper-slide">
+                        <!-- <img src="img/slider-img.png" alt="/"> -->
+                    </div>
+                    <div class="swiper-slide">
+                        <!-- <img src="img/slider-img.png" alt="/"> -->
+                    </div>  
+                    <div class="swiper-slide">
+                        <!-- <img src="img/slider-img.png" alt="/"> -->
+                    </div>
                 </div>
-                <div class="swiper-pagination"></div>
-               
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
             </div>
@@ -165,9 +183,9 @@
         <img class="footer_logo" src="img/лого1.png" alt="">
         <section class="footer_btn">
             <p>наверх</p>
-        <button>
+        <a href="#top">
             <img src="img/arrowsoutline.png" alt="top">
-        </button>
+        </a>
         </section>
     </footer>
 <script src="js/libs.min.js" ></script> 

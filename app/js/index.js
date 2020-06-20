@@ -6,25 +6,32 @@ var swiper = new Swiper('.swiper-container', {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-      pagination: {
-        el: '.swiper-pagination',
-      },
-      dots:true,
-    // slidesOffsetBefore:-170,
-    // loop: false,
-    // overflow: false,
     centeredSlides: true,
     breakpoints: { 
-      375: {spaceBetween: 40,
-      slidesPerView:1 }, 
-      414: { spaceBetween: 50,
-        slidesPerView:1 }, 
-      768: { spaceBetween: 80,
-        slidesPerView:1 },  
-      1024: { spaceBetween: 188,
+      375: {spaceBetween: 20,
+      slidesPerView:1,
+      centeredSlides: false, }, 
+      440: { spaceBetween: 20,
+        slidesPerView:1,
+        centeredSlides: false, }, 
+      768: { spaceBetween: 20,
+        slidesPerView:2,
+        centeredSlides: false,
+       },  
+      1024: { spaceBetween: 20,
         slidesPerView:3 } ,
-      1440: { spaceBetween: 288,
+      1400: { spaceBetween: 30,
         slidesPerView:3}
      }
   
   });
+
+  $(document).ready(function(){
+    $("#main_menu, #footer_btn").on("click","a", function (event) {
+        event.preventDefault();
+        var id  = $(this).attr('href'),
+            top = $(id).offset().top;
+        $('body,html').animate({scrollTop: top}, 1500);
+    });
+});
+

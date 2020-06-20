@@ -847,6 +847,12 @@ button.swiper-pagination-bullet {
   align-items: center;
 }
 
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+  .main_menu {
+    height: 80px;
+  }
+}
+
 .main_menu-item {
   list-style-type: none;
   font-family: "Fira sans";
@@ -857,6 +863,23 @@ button.swiper-pagination-bullet {
   text-align: center;
   cursor: pointer;
   padding-left: 0;
+}
+
+.main_menu-item-link {
+  color: #000000;
+  text-decoration: none;
+}
+
+.main_menu-item-link:hover {
+  color: #ffffff;
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+  .main_menu-item {
+    width: 90px;
+    font-size: 12px;
+    padding-top: 30px;
+  }
 }
 
 .main_menu-item:hover {
@@ -870,20 +893,62 @@ button.swiper-pagination-bullet {
 
 .main_section-block {
   background-image: url("../img/bg.png");
-  padding-left: 200px;
+  padding-left: 100px;
   padding-right: 100px;
-  padding-bottom: 40px;
+}
+
+@media only screen and (max-width: 375px) {
+  .main_section-block {
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (min-width: 376px) and (max-width: 767px) {
+  .main_section-block {
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .main_section-block {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+  .main_section-block {
+    width: 60%;
+  }
 }
 
 .main_heading {
   font-size: 80px;
   margin-top: 200px;
   font-family: "Fira sans";
-  width: 700px;
+  width: 100%;
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .main_heading {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+  .main_heading {
+    font-size: 40px;
+    margin-top: 80px;
+  }
 }
 
 .main_subheading {
@@ -896,9 +961,16 @@ button.swiper-pagination-bullet {
   hyphens: auto;
 }
 
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+  .main_subheading {
+    width: 100%;
+  }
+}
+
 .main_form-block {
   background-image: url("../img/bg1.png");
   width: 100%;
+  overflow-x: hidden;
 }
 
 .main_contact-form {
@@ -912,6 +984,12 @@ button.swiper-pagination-bullet {
   flex-direction: column;
 }
 
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+  .main_contact-form {
+    margin-top: 80px;
+  }
+}
+
 .main_contact-input {
   width: 400px;
   height: 60px;
@@ -920,6 +998,14 @@ button.swiper-pagination-bullet {
   color: #000000;
   padding: 20px;
   font-family: "Light Fira sans";
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+  .main_contact-input {
+    width: 350px;
+    height: 50px;
+    margin: 20px 50px;
+  }
 }
 
 .main label {
@@ -945,14 +1031,21 @@ button.swiper-pagination-bullet {
   margin: 30px 100px;
 }
 
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+  .main_contact-btn {
+    margin: 20px 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
 .main-overlay {
   background-color: rgba(23, 44, 66, 0.702);
-  position: absolute;
-  left: -22px;
+  position: relative;
   opacity: 0.9;
   top: 0;
   width: 100%;
-  height: 854px;
+  height: 820px;
   z-index: 127;
   display: none;
 }
@@ -1030,6 +1123,12 @@ button.swiper-pagination-bullet {
   text-align: center;
 }
 
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+  .main_advantages-heading {
+    margin-top: 80px;
+  }
+}
+
 .main_advantages-container {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1103,15 +1202,15 @@ button.swiper-pagination-bullet {
   .main .image-container img:first-child {
     top: 65px;
     left: 100px;
-    width: 80%;
+    width: auto;
   }
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1439px) {
   .main .image-container img:first-child {
-    top: 80px;
-    left: 150px;
-    width: 150%;
+    top: 40px;
+    left: 100px;
+    width: 100%;
   }
 }
 
@@ -1121,16 +1220,6 @@ button.swiper-pagination-bullet {
     left: 150px;
     width: auto;
   }
-}
-
-.main .image-container img:nth-child(2) {
-  top: 0%;
-  left: -32%;
-}
-
-.main .image-container img:last-child {
-  top: -2%;
-  left: -48%;
 }
 
 .main .information-container {
@@ -1178,6 +1267,114 @@ button.swiper-pagination-bullet {
   margin-top: -25px;
 }
 
+.main .price-section {
+  margin-top: 140px;
+}
+
+.main .price-section_heading {
+  font-family: "Fira sans";
+  text-transform: capitalize;
+  font-size: 50px;
+  text-align: center;
+}
+
+.main .price-cards {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+
+.main .price-cards_block {
+  width: 450px;
+  margin: 0 20px;
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.main .price-cards_block_heading {
+  text-align: center;
+  text-transform: capitalize;
+  font-family: "Fira sans";
+  color: #ffffff;
+  height: 85px;
+  padding: 25px 0;
+  font-size: 30px;
+  margin-top: 0;
+  background-color: #172c42;
+}
+
+.main .price-cards_block_menu ul {
+  padding: 0;
+}
+
+.main .price-cards_block_menu li {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: flex;
+  list-style-type: none;
+}
+
+.main .price-cards_block_menu img {
+  padding: 25px;
+}
+
+.main .price-cards_block_menu p {
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  font-size: 16px;
+  font-family: "Light Fira sans";
+  padding-right: 20px;
+}
+
+.main .price-cards_block-btn {
+  background-color: #ff213b;
+  outline: none;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-family: "Fira sans";
+  color: #ffffff;
+  border: none;
+  width: 320px;
+  height: 70px;
+  font-size: 24px;
+  position: relative;
+  left: 15%;
+  bottom: -30px;
+}
+
+.main .price-cards_block-content {
+  text-align: center;
+  font-size: 18px;
+  font-family: "Fira sans";
+  margin: 80px;
+}
+
+.main .price-cards .wrong-price {
+  text-align: center;
+  font-family: "Light Fira sans";
+  font-size: 30px;
+  text-decoration: line-through;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.main .price-cards .sale-price {
+  text-align: center;
+  font-family: "Fira sans";
+  font-size: 50px;
+  margin: 0;
+}
+
 .main .slider-heading {
   text-transform: capitalize;
   font-size: 50px;
@@ -1199,7 +1396,9 @@ button.swiper-pagination-bullet {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  display: table;
+  background-image: url("../img/slider-img.png");
+  background-size: cover;
+  background-repeat: no-repeat;
   -webkit-align-items: center;
   -moz-align-items: center;
   -ms-align-items: center;
@@ -1208,17 +1407,25 @@ button.swiper-pagination-bullet {
   -moz-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .main .swiper-slide {
+    background-size: auto;
+  }
 }
 
 .main .swiper-button-next {
   color: #000000;
-  top: 20%;
   outline: none;
 }
 
 .main .swiper-button-prev {
   color: #000000;
-  top: 20%;
   outline: none;
 }
 
@@ -1234,6 +1441,15 @@ button.swiper-pagination-bullet {
   justify-content: space-between;
   background-color: #172c42;
   height: 130px;
+  margin-top: 150px;
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+  .footer {
+    padding: 20px 100px;
+    margin-top: 100px;
+    height: 90px;
+  }
 }
 
 .footer_btn {
@@ -1248,13 +1464,14 @@ button.swiper-pagination-bullet {
   text-transform: capitalize;
 }
 
-.footer_btn button {
-  outline: none;
-  background-color: transparent;
-  border: none;
+.footer_btn a {
   cursor: pointer;
 }
 
 .footer_btn img {
   padding: 0 10px;
+}
+
+html {
+  scroll-behavior: smooth;
 }

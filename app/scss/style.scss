@@ -37,6 +37,12 @@
     -ms-hyphens: $property;
     hyphens: $property;
   }
+  @mixin box-shadow ($property) {
+    -moz-box-shadow: $property;
+    -webkit-box-shadow: $property;
+    -ms-box-shadow: $property;
+    box-shadow: $property;
+  }
   @mixin flex-direction($property) {
     -webkit-flex-direction: $property;
     -moz-flex-direction: $property;
@@ -170,6 +176,7 @@ $light-font: 'Light Fira sans';
         display: -ms-flexbox; 
         display: -moz-flex;
         display: flex;  
+        // position: absolute;
         @include flex-direction(row); 
         @include respond-to(mobile) { 
             @include flex-direction(column);       
@@ -196,7 +203,11 @@ $light-font: 'Light Fira sans';
         display: -moz-flex;
         display: flex; 
         height: 115px;
+        @include respond-to(laptop) {
+            height: 80px;  
+        }
         @include align-items(center);
+        
         &-item{
             list-style-type: none;
             font-family: $main-font;
@@ -207,6 +218,18 @@ $light-font: 'Light Fira sans';
             text-align: center;
             cursor: pointer;
             padding-left: 0;
+            &-link {
+                color:$font-color;
+                text-decoration: none;
+                &:hover{
+                    color: $light-color;
+                }
+            }
+            @include respond-to(laptop) {
+                width: 90px;
+                font-size: 12px;
+                padding-top: 30px; 
+            }
         } 
         &-item:hover{
             color: $light-color;
@@ -218,26 +241,61 @@ $light-font: 'Light Fira sans';
     }
     &_section-block{
         background-image: url('../img/bg.png');
-        padding-left: 200px;
+        padding-left: 100px;
         padding-right: 100px;
-        padding-bottom: 40px;
+        // padding-bottom: 40px;
+        @include respond-to(mobile) { 
+            @include flex-direction(column);       
+         }
+        @include respond-to(wide-mobile) {   
+            @include flex-direction(column);    
+        }
+        @include respond-to(tablets) {
+            font-size: 40px; 
+        }
+        @include respond-to(laptop) {
+            width: 60%; 
+        }
+        @include respond-to(wide-laptop) {
+            // @include flex-direction(row);  
+        } 
     }
     &_heading{
         font-size: 80px;
         margin-top: 200px;
         font-family: $main-font;
-        width: 700px;
+        width: 100%;
         @include hyphens(auto);
+        @include respond-to(mobile) { 
+            // @include flex-direction(column);       
+         }
+        @include respond-to(wide-mobile) {   
+            // @include flex-direction(column);    
+        }
+        @include respond-to(tablets) {
+            font-size: 40px; 
+        }
+        @include respond-to(laptop) {
+            font-size: 40px; 
+            margin-top: 80px;
+        }
+        @include respond-to(wide-laptop) {
+            // @include flex-direction(row);  
+        } 
     }
     &_subheading{
         font-size: 24px;
         font-family: $light-font;
         width: 700px;
         @include hyphens(auto);
+        @include respond-to(laptop) {
+            width: 100%; 
+        }
     }
     &_form-block{
         background-image: url('../img/bg1.png');
         width: 100%;
+        overflow-x: hidden;
         @include respond-to(mobile) {
             // margin-top: -170px;     
          }
@@ -256,7 +314,10 @@ $light-font: 'Light Fira sans';
         display: -ms-flexbox; 
         display: -moz-flex;
         margin-top: 170px;
-        @include flex-direction(column)
+        @include flex-direction(column);
+        @include respond-to(laptop) {
+            margin-top: 80px;
+        }
 
     }
     &_contact-input{
@@ -267,6 +328,11 @@ $light-font: 'Light Fira sans';
         color: $font-color;
         padding: 20px;
         font-family: $light-font;
+        @include respond-to(laptop) {
+            width: 350px;
+            height: 50px;
+            margin: 20px 50px;
+        }
     }
     label{
         color: $light-color;
@@ -288,15 +354,19 @@ $light-font: 'Light Fira sans';
         font-size: 24px;
         border: none;
         margin: 30px 100px;
+        @include respond-to(laptop) {
+            margin: 20px 50px;
+            height: 50px;
+            font-size: 20px;
+        }
     }
     &-overlay{
     background-color: rgba(23, 44, 66, 0.702);
-    position: absolute;
-    left: -22px;
+    position: relative;
     opacity: 0.9;
     top: 0;
     width: 100%;
-    height: 854px;
+    height: 820px;
     z-index: 127;   
     display: none;
 }
@@ -361,6 +431,9 @@ $light-font: 'Light Fira sans';
     font-family: $main-font;
     margin-top: 160px;
     text-align: center;
+    @include respond-to(laptop) {
+        margin-top: 80px;  
+   }
 }
 &_advantages-container{
     display: -webkit-flex; 
@@ -398,12 +471,12 @@ $light-font: 'Light Fira sans';
         @include respond-to(tablets) {
             top: 65px;
             left: 100px;
-            width: 80%;  
+            width: auto;  
         }
         @include respond-to(laptop) {
-            top: 80px;
-            left: 150px;
-            width: 150%; 
+            top: 40px;
+            left: 100px;
+            width: 100%; 
         } 
         @include respond-to(wide-laptop) {
             top: 100px;
@@ -411,14 +484,14 @@ $light-font: 'Light Fira sans';
             width: auto;  
         } 
     }
-    &:nth-child(2){
-        top: 0%;
-        left: -32%;
-    }
-    &:last-child{
-        top: -2%;
-        left: -48%;
-    }
+    // &:nth-child(2){
+    //     top: 0%;
+    //     left: -32%;
+    // }
+    // &:last-child{
+    //     top: -2%;
+    //     left: -48%;
+    // }
 }
 .information-container{
     margin-left: 200px;
@@ -455,6 +528,92 @@ $light-font: 'Light Fira sans';
         margin-top: -25px;
     }
 }
+.price-section{
+    margin-top: 140px;
+    &_heading{
+        font-family: $main-font;
+        text-transform: capitalize;
+        font-size: 50px;
+        text-align: center;
+    }
+}
+.price-cards{
+    display: -webkit-flex; 
+    display: -ms-flexbox; 
+    display: -moz-flex;  
+    display: flex;
+    @include justify-content(center);
+    &_block{
+        width: 450px;
+        margin: 0 20px;
+        @include box-shadow(0 0 20px rgba(0,0,0,0.2));
+        &_heading{
+            text-align: center;
+            text-transform: capitalize;
+            font-family: $main-font;
+            color: $light-color;
+            height: 85px;
+            padding: 25px 0;
+            font-size: 30px;
+            margin-top: 0;
+            background-color: $dark-color;
+        }
+        &_menu ul{
+            padding: 0;
+        }
+        &_menu li{
+            display: -webkit-flex; 
+            display: -ms-flexbox; 
+            display: -moz-flex; 
+            display: flex;
+            list-style-type: none;
+        }
+        &_menu img{
+           padding: 25px;
+        }
+        &_menu p{
+            @include hyphens(auto);
+            font-size: 16px;
+            font-family: $light-font;
+            padding-right: 20px;
+         }
+         &-btn{
+             background-color: $theme-color;
+             outline: none;
+             cursor: pointer;
+             text-transform: capitalize;
+             font-family: $main-font;
+             color: $light-color;
+             border: none;
+             width: 320px;
+             height: 70px;
+             font-size: 24px;
+             position: relative;
+             left: 15%;
+             bottom: -30px;
+         }
+         &-content{
+             text-align: center;
+             font-size: 18px;
+             font-family: $main-font;
+             margin: 80px;
+         }
+    }
+    .wrong-price{
+        text-align: center;
+        font-family: $light-font;
+        font-size: 30px;
+        text-decoration: line-through;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+    .sale-price{
+        text-align: center;
+        font-family: $main-font;
+        font-size: 50px;
+        margin: 0;
+    }
+}
 .slider-heading{
     text-transform: capitalize;
     font-size: 50px;
@@ -465,7 +624,6 @@ $light-font: 'Light Fira sans';
 .swiper-container {
     width: 100%;
     height: 100%;
-    // margin-top: 200px;
   }
 
   .swiper-slide {
@@ -476,24 +634,24 @@ $light-font: 'Light Fira sans';
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    display: table;
+    background-image: url('../img/slider-img.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     @include align-items(center);
     @include justify-content(center);
+    @include box-shadow(0 0 20px rgba(0,0,0,0.2));
+    @include respond-to(tablets) {
+        background-size: auto; 
+    } 
   }
   .swiper-button-next{
       color: $font-color;
-      top: 20%;
       outline: none;
   }
   .swiper-button-prev{
     color: $font-color;
-    top: 20%;
     outline: none;
 }
-// .swiper-pagination{
-//     margin-top: 30px;
-//     color: $font-color;
-// }
 }
 .footer{
     display: -webkit-box;
@@ -504,6 +662,12 @@ $light-font: 'Light Fira sans';
     @include justify-content(space-between);
     background-color: $dark-color;
     height: 130px;
+    margin-top: 150px;
+    @include respond-to(laptop) {
+        padding: 20px 100px;
+        margin-top: 100px;  
+        height: 90px;
+   }
     &_btn{
         display: flex;
         @include align-items(center);
@@ -512,10 +676,7 @@ $light-font: 'Light Fira sans';
         color: $light-color;
         text-transform: capitalize;
     }
-    &_btn button{
-        outline: none;
-        background-color: transparent;
-        border: none;
+    &_btn a{
         cursor: pointer;
     }
     &_btn img{
