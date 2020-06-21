@@ -52,16 +52,23 @@ document.addEventListener('mousemove', parallax);
 
   let overlay = document.getElementById('overlay');
   let formPopup = document.getElementById('formPopup');
-  
-  document.getElementById('orderBtn').onclick = function (){
+
+  function openTheForm(){
     overlay.classList.add('open');
     formPopup.classList.add('open');
- };
+  };
+
+  document.getElementById('orderBtn').addEventListener('click', openTheForm);
+
+
  document.getElementById('closeForm').onclick = function (){
   overlay.classList.remove('open');
   formPopup.classList.remove('open');
 }
 
+let priceBtn = document.querySelectorAll('.price-cards_block-btn').forEach(btn => {
+  btn.addEventListener('click', openTheForm);
+})
 
 
 

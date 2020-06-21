@@ -55,6 +55,18 @@
     -ms-animation-duration: $property;
     animation-duration: $property;
   }
+  @mixin animation-timing-function($property) {
+    -webkit-animation-timing-function: $property;
+    -moz-animation-timing-function: $property;
+    -ms-animation-timing-function: $property;
+    animation-timing-function: $property;
+  }
+  @mixin animation-delay($property) {
+    -webkit-animation-delay: $property;
+    -moz-animation-delay: $property;
+    -ms-animation-delay: $property;
+    animation-delay: $property;
+  }
   @mixin transform($property) {
     -webkit-transform: $property;
     -moz-transform: $property;
@@ -89,6 +101,8 @@ $light-color: #ffffff;
 $dark-color: #172c42;
 $main-font: 'Fira sans';
 $light-font: 'Light Fira sans';
+$fontSize: 24px;
+
 * {
     box-sizing: border-box;
 }
@@ -129,7 +143,40 @@ $light-font: 'Light Fira sans';
         }
         @include respond-to(tablets) {
             padding: 0 15px;
-        }    
+        } 
+        opacity:0; 
+        @include transition(1s);
+        -moz-animation: show 1s 1;
+        -webkit-animation: show 1s 1;
+        animation: show 1s 1; 
+        -moz-animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards; 
+        @include animation-delay(1s);
+        @-moz-keyframes show{
+            0% {
+            opacity:0;
+                }
+            100% {
+            opacity:1;
+                }
+            }
+        @-webkit-keyframes show{
+            0% {
+            opacity:0;
+                }
+            100% {
+            opacity:1;
+                }
+            } 
+        @keyframes show{
+            0% {
+            opacity:0;
+                }
+            100% {
+            opacity:1;
+                }
+            }   
     }
     &_contact{
         display: -webkit-flex; 
@@ -142,6 +189,70 @@ $light-font: 'Light Fira sans';
          }
         @include respond-to(wide-mobile) {   
             @include flex-direction(column)  
+        }
+        @include animation-name(slideLeft);
+        @include animation-duration(3s);
+        @include animation-timing-function(ease-in-out);
+        @keyframes slideLeft {
+            0% {
+                transform: translateX(150%);
+            }
+            50%{
+                transform: translateX(-8%);
+            }
+            65%{
+                transform: translateX(4%);
+            }
+            80%{
+                transform: translateX(-4%);
+            }
+            95%{
+                transform: translateX(2%);
+            }           
+            100% {
+                transform: translateX(0%);
+            }
+        }
+         
+        @-webkit-keyframes slideLeft {
+            0% {
+                -webkit-transform: translateX(150%);
+            }
+            50%{
+                -webkit-transform: translateX(-8%);
+            }
+            65%{
+                -webkit-transform: translateX(4%);
+            }
+            80%{
+                -webkit-transform: translateX(-4%);
+            }
+            95%{
+                -webkit-transform: translateX(2%);
+            }           
+            100% {
+                -webkit-transform: translateX(0%);
+            }
+        }
+        @-moz-keyframes slideLeft {
+            0% {
+                -moz-transform: translateX(150%);
+            }
+            50%{
+                -moz-transform: translateX(-8%);
+            }
+            65%{
+                -moz-transform: translateX(4%);
+            }
+            80%{
+                -moz-transform: translateX(-4%);
+            }
+            95%{
+                -moz-transform: translateX(2%);
+            }           
+            100% {
+                -moz-transform: translateX(0%);
+            }
         }
     }
     &_tel{
@@ -172,6 +283,7 @@ $light-font: 'Light Fira sans';
         text-transform: capitalize;
         cursor: pointer;
         outline: none;
+       
         @include respond-to(mobile) {
             width: 240px;
             height: 45px; 
@@ -227,6 +339,7 @@ $light-font: 'Light Fira sans';
         display: -moz-flex;
         display: flex; 
         height: 115px;
+        margin: 0;
         @include justify-content(center);
         @include respond-to(mobile) {
             @include flex-direction(column); 
@@ -320,6 +433,71 @@ $light-font: 'Light Fira sans';
         font-family: $main-font;
         width: 100%;
         @include hyphens(auto);
+        @include animation-name(slideDown);
+        @include animation-duration(3s);
+        @include animation-timing-function(ease-in-out);
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-100%);
+            }
+            50%{
+                transform: translateY(8%);
+            }
+            65%{
+                transform: translateY(-4%);
+            }
+            80%{
+                transform: translateY(4%);
+            }
+            95%{
+                transform: translateY(-2%);
+            }           
+            100% {
+                transform: translateY(0%);
+            }       
+        }
+         
+        @-webkit-keyframes slideDown {
+            0% {
+                -webkit-transform: translateY(-100%);
+            }
+            50%{
+                -webkit-transform: translateY(8%);
+            }
+            65%{
+                -webkit-transform: translateY(-4%);
+            }
+            80%{
+                -webkit-transform: translateY(4%);
+            }
+            95%{
+                -webkit-transform: translateY(-2%);
+            }           
+            100% {
+                -webkit-transform: translateY(0%);
+            }   
+        }
+        
+        @-moz-keyframes slideDown {
+            0% {
+                -moz-transform: translateY(-100%);
+            }
+            50%{
+                -moz-transform: translateY(8%);
+            }
+            65%{
+                -moz-transform: translateY(-4%);
+            }
+            80%{
+                -moz-transform: translateY(4%);
+            }
+            95%{
+                -moz-transform: translateY(-2%);
+            }           
+            100% {
+                -moz-transform: translateY(0%);
+            }   
+        }
         @include respond-to(mobile) { 
             margin-top: 135px;
             font-size: 30px;  
@@ -343,10 +521,13 @@ $light-font: 'Light Fira sans';
         } 
     }
     &_subheading{
-        font-size: 24px;
+        font-size: $fontSize;
         font-family: $light-font;
         width: 700px;
         @include hyphens(auto);
+        @include animation-name(slideDown);
+        @include animation-duration(3s);
+        @include animation-timing-function(ease-in-out);
         @include respond-to(mobile) {   
             text-align: center;    
             font-size: 16px;
@@ -422,7 +603,7 @@ $light-font: 'Light Fira sans';
     label{
         color: $light-color;
         margin: 10px 100px;
-        font-size: 24px;
+        font-size: $fontSize;
         font-family: $main-font;
         text-transform: capitalize;
         @include respond-to(mobile) {
@@ -433,6 +614,9 @@ $light-font: 'Light Fira sans';
             margin: 5px 75px;
             font-size: 18px;      
         } 
+        @include animation-name(slideLeft);
+        @include animation-duration(3s);
+        @include animation-timing-function(ease-in-out);
     }
     &_contact-btn{
         width: 340px;
@@ -444,7 +628,7 @@ $light-font: 'Light Fira sans';
         text-align: center;
         cursor: pointer;
         padding-left: 0;
-        font-size: 24px;
+        font-size: $fontSize;
         border: none;
         margin: 30px 100px;
         @include respond-to(mobile) {
@@ -491,7 +675,8 @@ $light-font: 'Light Fira sans';
     top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%);
+    @include transform(translate(-50%, -50%));
+    // transform: translate(-50%, -50%);
     top: 50%;
     background-color: $light-color;
    
@@ -517,7 +702,7 @@ $light-font: 'Light Fira sans';
         font-family: $main-font;
         text-transform: capitalize;
         padding-top: 10%;
-        font-size: 24px;
+        font-size: $fontSize;
         @include respond-to(mobile) {
             font-size: 18px;
         }
@@ -587,36 +772,6 @@ $light-font: 'Light Fira sans';
         top: 20px;
         right: 20px; 
     }
-}
-&-popup{
-    background-image: url('../img/popup.png');
-    background-repeat: no-repeat;
-    position: relative;
-    z-index: 200;
-    background-size: cover;
-    width:680px;
-    height: 500px;
-    right: 0;
-    left: 30%;
-    top: 25%;
-    display: none;
-    @include respond-to(mobile) {
-        width: 290px;
-        height: 50px;
-        font-size: 20px;
-        margin: 30px 40px;
-    }
-    @include respond-to(wide-mobile) {
-        width: 290px;
-        height: 50px;
-        font-size: 20px;
-        margin: 30px 55px;
-    }
-    @include respond-to(laptop) {
-        left: 20%;
-        top: 15%;
-    }
-    // display: none;
 }
 .social-networks{
     display: -webkit-flex; 
@@ -880,24 +1035,28 @@ $light-font: 'Light Fira sans';
              border: none;
              width: 320px;
              height: 70px;
-             font-size: 24px;
+             font-size: $fontSize;
              position: relative;
-             left: 15%;
-             bottom: -30px;
+             left: 50%;
+             margin-right: -50%;
+             @include transform(translate(-50%, -50%));
+            //  transform: translate(-50%, -50%);
+             bottom: -65px;
              @include respond-to(mobile) {
                 width: 200px;
                 height: 50px;
                 font-size: 18px;
-                left: 11%;
+                bottom: -45px;
              }
              @include respond-to(wide-mobile) {
                 width: 250px;
                 height: 55px;
                 font-size: 20px;
+                bottom: -50px;
              }
              @include respond-to(tablets) {
                 width: 280px;
-                left: 9%
+                bottom: -65px;
              }
          }
          &-content{
@@ -921,10 +1080,10 @@ $light-font: 'Light Fira sans';
         margin-top: 30px;
         margin-bottom: 10px;
         @include respond-to(mobile) {
-            font-size: 24px;
+            font-size: $fontSize;
          }
         @include respond-to(wide-mobile) {
-            font-size: 24px;
+            font-size: $fontSize;
          }
     }
     .sale-price{
@@ -1034,7 +1193,7 @@ $light-font: 'Light Fira sans';
         display: flex;
         @include align-items(center);
         font-family: $light-font;
-        font-size: 24px;
+        font-size: $fontSize;
         color: $light-color;
         text-transform: capitalize;
         @include respond-to(mobile) {
@@ -1057,4 +1216,7 @@ $light-font: 'Light Fira sans';
 }
 .open{
     display: block!important;
+}
+#animatedImg {
+    cursor: pointer;
 }
