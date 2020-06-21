@@ -11,7 +11,7 @@
         <img class="header_logo" src="img/logo.png" alt="logo">
             <section class="header_contact">
         <a class="header_tel" href="tel:+380999999999">+38(099)999 99 99</a>
-        <button class="header_order-btn">заказать</button>
+        <button class="header_order-btn" id="orderBtn">заказать</button>
              </section>
     </header>
     <main class="main">
@@ -46,8 +46,8 @@
             </form>
         </aside>
     </section>
-    <section class="main-overlay"></section>
-        <div class="main-popup">
+    <section class="main-overlay" id="overlay">
+        <div class="main-popup" id="popup">
             <div class="main-popup-logo">
                 <img src="img/done.png" alt="">
             </div>
@@ -66,13 +66,24 @@
                 </a>
             </section>
         </div>
+        <div class="main_form-popup" id="formPopup">
+            <h3 class="main_form-popup-heading">заявка</h3>
+                <button class="close-btn" id="closeForm"> 
+                    <img src="img/close.png" alt="close">
+                </button>
+            <form action="" method="POST">
+                <input class="main_form-popup-input" type="text" placeholder="имя">
+                <input class="main_form-popup-input" type="tel" name="" id="" placeholder="телефон">
+                <input class="main_form-popup-input" type="number" name="" id="" placeholder="ваши номера">
+                <button type="submit" class="main_form-popup-btn">заказать</button>
+            </form>
+        </div>
+    </section>
         <section class="main_advantages" id="advantages">
             <h3 class="main_advantages-heading">преимущества</h3>
             <section class="main_advantages-container">
                 <div class="image-container">
-                    <img src="img/car.png" alt="car">
-                    <!-- <img src="img/number.png" alt="number">
-                    <img src="img/layer.png" alt="/"> -->
+                    <img src="img/car.png" alt="car" id="animatedImg" data-speed="5">
                 </div>
                 <section class="information-container">
                     <section class="information-container-block">
@@ -154,24 +165,9 @@
             <h3 class="slider-heading">отзывы</h3>
             <div class="swiper-container" >
                 <div class="swiper-wrapper" >
-                    <div  class="swiper-slide">
-                        <!-- <img src="img/slider-img.png" alt="/"> -->
-                    </div>
-                    <div class="swiper-slide">
-                        <!-- <img src="img/slider-img.png" alt="/"> -->
-                    </div>  
-                    <div class="swiper-slide">
-                        <!-- <img src="img/slider-img.png" alt="/"> -->
-                    </div>
-                    <div  class="swiper-slide">
-                        <!-- <img src="img/slider-img.png" alt="/"> -->
-                    </div>
-                    <div class="swiper-slide">
-                        <!-- <img src="img/slider-img.png" alt="/"> -->
-                    </div>  
-                    <div class="swiper-slide">
-                        <!-- <img src="img/slider-img.png" alt="/"> -->
-                    </div>
+                    <div  class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>

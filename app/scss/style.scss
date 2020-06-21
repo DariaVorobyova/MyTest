@@ -120,14 +120,12 @@ $light-font: 'Light Fira sans';
         @include respond-to(mobile) {
             @include flex-direction(column) ;
             width: 50%;
-            margin: 30px;    
+            margin: 30px; 
+               
          }
         @include respond-to(wide-mobile) {
             width: 50%;
             margin: 40px;;     
-        }
-        @include respond-to(laptop) {
-            // margin-top: -170px;
         }
         @include respond-to(tablets) {
             padding: 0 15px;
@@ -153,6 +151,15 @@ $light-font: 'Light Fira sans';
         font-size: 20px;
         cursor: pointer;
         margin-right: 15px;
+        @include respond-to(mobile) {
+            font-size: 15px;
+        }
+        @include respond-to(wide-mobile) {
+            font-size: 15px;
+        }
+        @include respond-to(tablets) {
+            font-size: 15px;
+        }
     }
     &_order-btn{
         width: 270px;
@@ -165,18 +172,35 @@ $light-font: 'Light Fira sans';
         text-transform: capitalize;
         cursor: pointer;
         outline: none;
+        @include respond-to(mobile) {
+            width: 240px;
+            height: 45px; 
+            font-size: 15px;
+            margin: 20px;
+        }
+        @include respond-to(wide-mobile) {
+            width: 240px;
+            height: 45px; 
+            font-size: 15px;
+            margin: 20px;
+        }
+        @include respond-to(tablets) {
+            width: 170px;
+            height: 40px; 
+        }
+        @include respond-to(laptop) {
+            width: 200px;
+            height: 50px; 
+        }
     }
 }
 .main{
-    // position: absolute;
-    // z-index: 10;
     width: 100%;
     &_order-section{
         display: -webkit-flex; 
         display: -ms-flexbox; 
         display: -moz-flex;
         display: flex;  
-        // position: absolute;
         @include flex-direction(row); 
         @include respond-to(mobile) { 
             @include flex-direction(column);       
@@ -185,7 +209,7 @@ $light-font: 'Light Fira sans';
             @include flex-direction(column);    
         }
         @include respond-to(tablets) {
-            @include flex-direction(row);  
+            @include flex-direction(column)  
         }
         @include respond-to(laptop) {
             @include flex-direction(row);  
@@ -203,6 +227,20 @@ $light-font: 'Light Fira sans';
         display: -moz-flex;
         display: flex; 
         height: 115px;
+        @include justify-content(center);
+        @include respond-to(mobile) {
+            @include flex-direction(column); 
+            margin-top: 65px; 
+            padding-left: 0;   
+        } 
+        @include respond-to(wide-mobile) {
+            @include flex-direction(column); 
+            margin-top: 25px; 
+            padding-left: 0;      
+        } 
+        @include respond-to(tablets) {
+            height: 70px;    
+        } 
         @include respond-to(laptop) {
             height: 80px;  
         }
@@ -215,15 +253,29 @@ $light-font: 'Light Fira sans';
             width: 145px;
             height: 100%;
             padding-top: 50px;
+            font-size: 20px;
             text-align: center;
             cursor: pointer;
             padding-left: 0;
+            @include respond-to(mobile) {
+                padding-top: 30px;
+                font-size: 17px;
+            }
             &-link {
                 color:$font-color;
                 text-decoration: none;
                 &:hover{
                     color: $light-color;
                 }
+            }
+            @include respond-to(wide-mobile) {
+                padding: 10px;
+                font-size: 13px; 
+            }
+            @include respond-to(tablets) {
+                width: 100px;
+                font-size: 15px;
+                padding-top: 20px; 
             }
             @include respond-to(laptop) {
                 width: 90px;
@@ -243,22 +295,24 @@ $light-font: 'Light Fira sans';
         background-image: url('../img/bg.png');
         padding-left: 100px;
         padding-right: 100px;
-        // padding-bottom: 40px;
         @include respond-to(mobile) { 
-            @include flex-direction(column);       
+            @include flex-direction(column);  
+            padding-left: 50px;
+            padding-right: 50px;     
          }
         @include respond-to(wide-mobile) {   
-            @include flex-direction(column);    
+            @include flex-direction(column);  
+            padding-left: 50px;
+            padding-right: 50px;    
         }
         @include respond-to(tablets) {
             font-size: 40px; 
+            padding-left: 70px;
+            padding-right: 70px;  
         }
         @include respond-to(laptop) {
             width: 60%; 
         }
-        @include respond-to(wide-laptop) {
-            // @include flex-direction(row);  
-        } 
     }
     &_heading{
         font-size: 80px;
@@ -267,20 +321,25 @@ $light-font: 'Light Fira sans';
         width: 100%;
         @include hyphens(auto);
         @include respond-to(mobile) { 
-            // @include flex-direction(column);       
+            margin-top: 135px;
+            font-size: 30px;  
+            text-align: center;      
          }
         @include respond-to(wide-mobile) {   
-            // @include flex-direction(column);    
+            margin-top: 80px;
+            font-size: 30px;  
+            text-align: center;  
         }
         @include respond-to(tablets) {
             font-size: 40px; 
+            margin-top: 100px;
+            text-align: center;
         }
         @include respond-to(laptop) {
             font-size: 40px; 
             margin-top: 80px;
         }
         @include respond-to(wide-laptop) {
-            // @include flex-direction(row);  
         } 
     }
     &_subheading{
@@ -288,6 +347,22 @@ $light-font: 'Light Fira sans';
         font-family: $light-font;
         width: 700px;
         @include hyphens(auto);
+        @include respond-to(mobile) {   
+            text-align: center;    
+            font-size: 16px;
+            width: auto;
+        }
+        @include respond-to(wide-mobile) {   
+            text-align: center;    
+            font-size: 18px;
+            width: auto;
+        }
+        @include respond-to(tablets) {
+            font-size: 20px;
+            width: 100%;  
+            text-align: center;
+            padding-bottom: 100px;
+        }
         @include respond-to(laptop) {
             width: 100%; 
         }
@@ -296,25 +371,24 @@ $light-font: 'Light Fira sans';
         background-image: url('../img/bg1.png');
         width: 100%;
         overflow-x: hidden;
-        @include respond-to(mobile) {
-            // margin-top: -170px;     
-         }
-        @include respond-to(wide-mobile) {
-            // margin-top: -170px;     
-        }
-        @include respond-to(laptop) {
-            // margin-top: -170px;
-        }
-        @include respond-to(tablets) {
-            // margin-top: -170px;
-        } 
     }
     &_contact-form{
         display: -webkit-flex; 
         display: -ms-flexbox; 
         display: -moz-flex;
+        display: flex;
         margin-top: 170px;
         @include flex-direction(column);
+        @include respond-to(mobile) {
+            margin-top: 70px;
+        }
+        @include respond-to(wide-mobile) {
+            margin-top: 80px;
+        }
+        @include respond-to(tablets) {
+            margin-top: 60px;
+            @include align-items(center)
+        }
         @include respond-to(laptop) {
             margin-top: 80px;
         }
@@ -328,6 +402,17 @@ $light-font: 'Light Fira sans';
         color: $font-color;
         padding: 20px;
         font-family: $light-font;
+        outline: none;
+        @include respond-to(mobile) {
+            width: 300px;
+            height: 40px;
+            margin: 20px 40px;      
+        } 
+        @include respond-to(wide-mobile) {
+            width: 300px;
+            height: 40px;
+            margin: 20px 50px;      
+        } 
         @include respond-to(laptop) {
             width: 350px;
             height: 50px;
@@ -340,6 +425,14 @@ $light-font: 'Light Fira sans';
         font-size: 24px;
         font-family: $main-font;
         text-transform: capitalize;
+        @include respond-to(mobile) {
+            margin: 5px 75px;
+            font-size: 16px;      
+        } 
+        @include respond-to(wide-mobile) {
+            margin: 5px 75px;
+            font-size: 18px;      
+        } 
     }
     &_contact-btn{
         width: 340px;
@@ -354,6 +447,18 @@ $light-font: 'Light Fira sans';
         font-size: 24px;
         border: none;
         margin: 30px 100px;
+        @include respond-to(mobile) {
+            width: 290px;
+            height: 50px;
+            font-size: 20px;
+            margin: 30px 40px;
+        }
+        @include respond-to(wide-mobile) {
+            width: 290px;
+            height: 50px;
+            font-size: 20px;
+            margin: 30px 55px;
+        }
         @include respond-to(laptop) {
             margin: 20px 50px;
             height: 50px;
@@ -361,51 +466,157 @@ $light-font: 'Light Fira sans';
         }
     }
     &-overlay{
-    background-color: rgba(23, 44, 66, 0.702);
-    position: relative;
-    opacity: 0.9;
-    top: 0;
-    width: 100%;
-    height: 820px;
-    z-index: 127;   
+        background-color: rgba(23, 44, 66, 0.702);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 127;   
+        display: none;
+}
+&_form-popup form {
+    display: -webkit-flex; 
+    display: -ms-flexbox; 
+    display: -moz-flex;
+    display: flex;
+    flex-direction: column;
+    @include align-items(center)
+}
+&_form-popup{
     display: none;
+    position: relative;
+    z-index: 300; 
+    width: 630px;
+    height: 575px;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    background-color: $light-color;
+   
+    @include respond-to(mobile) {
+        width: 250px;
+        height: 350px;
+        font-size: 20px;
+    }
+    @include respond-to(wide-mobile) {
+        width: 250px;
+        height: 350px;
+    }
+    @include respond-to(tablets) {
+        width: 300px;
+        height: 400px;
+    }
+    @include respond-to(laptop) {
+        width: 550px;
+        height: 500px;
+    }
+    &-heading{
+        text-align: center;
+        font-family: $main-font;
+        text-transform: capitalize;
+        padding-top: 10%;
+        font-size: 24px;
+        @include respond-to(mobile) {
+            font-size: 18px;
+        }
+        @include respond-to(wide-mobile) {
+            font-size: 18px;
+        }
+        @include respond-to(tablets) {
+            font-size: 20px;
+        }
+    }
+    &-input{
+        @extend .main_contact-input;
+        @include respond-to(mobile) {
+            width: 200px;
+            margin: 10px;
+        }
+        @include respond-to(wide-mobile) {
+            width: 220px;
+            margin: 10px;
+        }
+        @include respond-to(tablets) {
+            width: 270px;
+            height: 50px;
+            margin: 15px 15px;
+        }
+       
+    };
+    &-btn{
+        @extend .main_contact-btn;
+        @include respond-to(mobile) {
+            width: 180px;
+            height: 40px;
+            font-size: 15px;
+            margin: 10px;
+        }
+        @include respond-to(wide-mobile) {
+            width: 200px;
+            height: 45px;
+            font-size: 17px;
+            margin: 10px;
+        }
+        @include respond-to(tablets) {
+            width: 240px;
+            height: 50px;;
+            font-size: 18px;
+            margin: 13px
+        }
+    };
+}
+.close-btn{
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    @include respond-to(mobile) {
+        top: 20px;
+        right: 20px; 
+    }
+    @include respond-to(wide-mobile) {
+        top: 20px;
+        right: 20px; 
+    }
+    @include respond-to(tablets) {
+        top: 20px;
+        right: 20px; 
+    }
 }
 &-popup{
     background-image: url('../img/popup.png');
     background-repeat: no-repeat;
-    position: absolute;
+    position: relative;
     z-index: 200;
     background-size: cover;
     width:680px;
     height: 500px;
     right: 0;
-    left: 33%;
-    top: 160px;
+    left: 30%;
+    top: 25%;
     display: none;
-    &-logo{
-        border-radius: 50%;
-        background-color: $theme-color;
-        width: 100px;
-        height: 100px;
-        position: relative;
-        top:130px;
-        margin: 0 auto;
-        padding: 18px;;
+    @include respond-to(mobile) {
+        width: 290px;
+        height: 50px;
+        font-size: 20px;
+        margin: 30px 40px;
     }
-    &-heading{
-        font-family: $main-font;
-        margin-top: 180px;
-        text-align: center;
-        font-size: 41px;
-        margin-bottom: 0;
+    @include respond-to(wide-mobile) {
+        width: 290px;
+        height: 50px;
+        font-size: 20px;
+        margin: 30px 55px;
     }
-    &-subheading{
-        font-family: $light-font;
-        text-align: center;
-        font-size: 22px;
-        margin: 30px;
-        padding: 0;
+    @include respond-to(laptop) {
+        left: 20%;
+        top: 15%;
     }
+    // display: none;
 }
 .social-networks{
     display: -webkit-flex; 
@@ -431,6 +642,13 @@ $light-font: 'Light Fira sans';
     font-family: $main-font;
     margin-top: 160px;
     text-align: center;
+    @include respond-to(mobile) {
+        margin-top: 40px;  
+        font-size: 40px;
+   }
+    @include respond-to(wide-mobile) {
+        margin-top: 80px;  
+   }
     @include respond-to(laptop) {
         margin-top: 80px;  
    }
@@ -443,15 +661,21 @@ $light-font: 'Light Fira sans';
     @include align-items(center);
     @include flex-direction(column);
     padding-bottom: 50px;
-    @include respond-to(wide-mobile) {
-        @include flex-direction(column);   
+    @include respond-to(mobile) {
+        @include flex-direction(column); 
+        padding-bottom: 0;  
     }
-    @include respond-to(laptop) {
-         @include flex-direction(row);  
+    @include respond-to(wide-mobile) {
+        @include flex-direction(column); 
+        padding-bottom: 0;  
     }
     @include respond-to(tablets) {
-        @include flex-direction(column);  
+        @include flex-direction(column); 
+        padding-bottom: 0;   
     } 
+    @include respond-to(laptop) {
+        @include flex-direction(row);  
+   }
     @include respond-to(wide-laptop) {
         @include flex-direction(row);  
     } 
@@ -462,15 +686,13 @@ $light-font: 'Light Fira sans';
         top: 50px;
         left: 70px;
         width: 50%;
-        // top:100px;
-        // left: 340px;
         @include respond-to(wide-mobile) {
             left: 80px;
             width: 60%;   
         }
         @include respond-to(tablets) {
             top: 65px;
-            left: 100px;
+            left: auto;
             width: auto;  
         }
         @include respond-to(laptop) {
@@ -484,17 +706,18 @@ $light-font: 'Light Fira sans';
             width: auto;  
         } 
     }
-    // &:nth-child(2){
-    //     top: 0%;
-    //     left: -32%;
-    // }
-    // &:last-child{
-    //     top: -2%;
-    //     left: -48%;
-    // }
 }
 .information-container{
     margin-left: 200px;
+    @include respond-to(mobile) {
+        margin: 100px 30px 0 60px;  
+     }
+    @include respond-to(wide-mobile) {
+        margin: 100px 30px 0 60px;  
+     }
+    @include respond-to(tablets) {
+       margin: 100px 100px 0 100px;  
+    }
     &-item {
         display: -webkit-flex; 
         display: -ms-flexbox; 
@@ -507,34 +730,81 @@ $light-font: 'Light Fira sans';
       font-family: $main-font;
       text-transform: capitalize;
       margin-top: 30px;
+      @include respond-to(mobile) {
+        font-size: 25px;
+     }
     }
     &-item img{
         width: 15%;
         height: 15%;
         margin-top: 30px;
+        @include respond-to(tablets) {
+            width: 10%; 
+            height: 10%;
+         }
     }
     &-block {
         width: 420px;
+        @include respond-to(mobile) {
+            width: 100%; 
+         }
+        @include respond-to(wide-mobile) {
+            width: 100%; 
+         }
+        @include respond-to(tablets) {
+            width: 100%; 
+         }
     }
     &-block p {
         @include hyphens(auto);
         padding-left: 70px;
         font-size: 16px;
+        @include respond-to(mobile) {
+            padding-left: 55px;
+        }
+        @include respond-to(wide-mobile) {
+            max-width: 400px;
+            padding: 0;
+        }
+        @include respond-to(laptop) {
+            padding: 0 70px  
+       }
     }
     &-block hr {
         margin-left: 70px;
         border: 8px solid $theme-color;
         width: 90px;
         margin-top: -25px;
+        @include respond-to(mobile) {
+            margin-left: 55px;
+        }
+       
     }
 }
 .price-section{
     margin-top: 140px;
+
+    @include respond-to(mobile) {
+        margin-top: 0;
+     }
+     @include respond-to(wide-mobile) {
+        margin-top: 0;
+     }
+    @include respond-to(tablets) {
+        margin-top: 0;
+     }
+     @include respond-to(laptop) {
+        margin-top: 70px;
+     }
     &_heading{
         font-family: $main-font;
         text-transform: capitalize;
         font-size: 50px;
         text-align: center;
+        @include respond-to(mobile) {
+           font-size: 45px;
+           margin-bottom: 0;
+         }
     }
 }
 .price-cards{
@@ -543,10 +813,24 @@ $light-font: 'Light Fira sans';
     display: -moz-flex;  
     display: flex;
     @include justify-content(center);
+    @include respond-to(mobile) {
+        @include flex-direction(column)
+     }
+    @include respond-to(wide-mobile) {
+        @include flex-direction(column)
+     }
     &_block{
         width: 450px;
         margin: 0 20px;
         @include box-shadow(0 0 20px rgba(0,0,0,0.2));
+        @include respond-to(mobile) {
+            margin: 10%;
+            max-width: 80%;
+         }
+        @include respond-to(wide-mobile) {
+            margin: 10%;
+            max-width: 80%;
+         }
         &_heading{
             text-align: center;
             text-transform: capitalize;
@@ -558,8 +842,8 @@ $light-font: 'Light Fira sans';
             margin-top: 0;
             background-color: $dark-color;
         }
-        &_menu ul{
-            padding: 0;
+        &_menu {
+            padding: 0!important;
         }
         &_menu li{
             display: -webkit-flex; 
@@ -570,12 +854,21 @@ $light-font: 'Light Fira sans';
         }
         &_menu img{
            padding: 25px;
+           @include respond-to(mobile) {
+            padding: 0;
+            width: 25px;
+            margin: auto 10px;
+            height: 25px;
+         }
         }
         &_menu p{
             @include hyphens(auto);
             font-size: 16px;
             font-family: $light-font;
             padding-right: 20px;
+            @include respond-to(wide-mobile) {
+                font-size: 14px;
+             }
          }
          &-btn{
              background-color: $theme-color;
@@ -591,12 +884,33 @@ $light-font: 'Light Fira sans';
              position: relative;
              left: 15%;
              bottom: -30px;
+             @include respond-to(mobile) {
+                width: 200px;
+                height: 50px;
+                font-size: 18px;
+                left: 11%;
+             }
+             @include respond-to(wide-mobile) {
+                width: 250px;
+                height: 55px;
+                font-size: 20px;
+             }
+             @include respond-to(tablets) {
+                width: 280px;
+                left: 9%
+             }
          }
          &-content{
              text-align: center;
              font-size: 18px;
              font-family: $main-font;
              margin: 80px;
+             @include respond-to(mobile) {
+                font-size: 15px;
+             }
+             @include respond-to(tablets) {
+                font-size: 15px;
+             }
          }
     }
     .wrong-price{
@@ -606,12 +920,24 @@ $light-font: 'Light Fira sans';
         text-decoration: line-through;
         margin-top: 30px;
         margin-bottom: 10px;
+        @include respond-to(mobile) {
+            font-size: 24px;
+         }
+        @include respond-to(wide-mobile) {
+            font-size: 24px;
+         }
     }
     .sale-price{
         text-align: center;
         font-family: $main-font;
         font-size: 50px;
         margin: 0;
+        @include respond-to(mobile) {
+            font-size: 40px;
+         }
+        @include respond-to(wide-mobile) {
+            font-size: 40px;
+         }
     }
 }
 .slider-heading{
@@ -624,6 +950,17 @@ $light-font: 'Light Fira sans';
 .swiper-container {
     width: 100%;
     height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    @include respond-to(mobile) {
+        height: 110%; 
+    } 
+    @include respond-to(wide-mobile) {
+        height: 150%;
+   }
+   @include respond-to(tablets) {
+    height: 110%;
+}
   }
 
   .swiper-slide {
@@ -640,17 +977,27 @@ $light-font: 'Light Fira sans';
     @include align-items(center);
     @include justify-content(center);
     @include box-shadow(0 0 20px rgba(0,0,0,0.2));
-    @include respond-to(tablets) {
-        background-size: auto; 
+    @include respond-to(mobile) {
+        width: 50%; 
     } 
+    @include respond-to(wide-mobile) {
+        width: 50%;
+   }
+   @include respond-to(tablets) {
+    background-size: auto;
+    height: 100%;
+ }
+    
   }
   .swiper-button-next{
       color: $font-color;
       outline: none;
+      cursor: pointer;
   }
   .swiper-button-prev{
     color: $font-color;
     outline: none;
+    cursor: pointer;
 }
 }
 .footer{
@@ -663,6 +1010,21 @@ $light-font: 'Light Fira sans';
     background-color: $dark-color;
     height: 130px;
     margin-top: 150px;
+    @include respond-to(mobile) {
+        padding: 30px 25px;
+        height: 90px;
+        margin-top: 50px;
+     }
+    @include respond-to(wide-mobile) {
+        padding: 35px 50px;
+        height: 105px;
+        margin-top: 80px;
+     }
+    @include respond-to(tablets) {
+        padding: 20px 30px;
+        height: 80px;
+        margin-top: 50px;
+     }
     @include respond-to(laptop) {
         padding: 20px 100px;
         margin-top: 100px;  
@@ -675,11 +1037,24 @@ $light-font: 'Light Fira sans';
         font-size: 24px;
         color: $light-color;
         text-transform: capitalize;
+        @include respond-to(mobile) {
+            font-size: 18px;
+         }
+        @include respond-to(wide-mobile) {
+            font-size: 18px;
+         }
     }
     &_btn a{
         cursor: pointer;
     }
     &_btn img{
         padding: 0 10px;
+        cursor: pointer;
     }
+}
+.close{
+    display: none!important;
+}
+.open{
+    display: block!important;
 }
