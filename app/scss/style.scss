@@ -108,28 +108,27 @@ $fontSize: 24px;
 }
 
 .header{
-    padding: 25px 200px;
+    padding: 25px 50px;
     display: -webkit-flex; 
     display: -ms-flexbox; 
     display: -moz-flex;
     display: flex;
-    @include flex-direction(row);
+    @include flex-direction(column);
     @include align-items(center);
     @include justify-content(space-between);
-    @include respond-to(mobile) {
-        @include flex-direction(column) ;
-        padding: 25px 50px;    
-     }
-    @include respond-to(wide-mobile) {
-        padding: 25px 50px; 
-        @include flex-direction(column);    
-    }
-    @include respond-to(laptop) {
-        padding: 25px 50px;
-    }
+
     @include respond-to(tablets) {
+        @include flex-direction(row);
         padding: 25px 100px; 
     } 
+    @include respond-to(laptop) {
+        @include flex-direction(row);
+        padding: 25px 50px;
+    }
+    @include respond-to(wide-laptop) {
+        @include flex-direction(row);
+        padding: 25px 200px;
+    }
     &_logo {
         @include respond-to(mobile) {
             @include flex-direction(column) ;
@@ -183,12 +182,17 @@ $fontSize: 24px;
         display: -ms-flexbox; 
         display: -moz-flex;
         display: flex;
+        @include flex-direction(column);
         @include align-items(center);
-        @include respond-to(mobile) {
-            @include flex-direction(column) ;   
+
+        @include respond-to(tablets) {
+            @include flex-direction(row);   
          }
-        @include respond-to(wide-mobile) {   
-            @include flex-direction(column)  
+        @include respond-to(laptop) {   
+            @include flex-direction(row)  
+        }
+        @include respond-to(wide-laptop) {   
+            @include flex-direction(row)  
         }
         @include animation-name(slideLeft);
         @include animation-duration(3s);
@@ -273,9 +277,10 @@ $fontSize: 24px;
         }
     }
     &_order-btn{
-        width: 270px;
-        height: 60px;
-        font-size: 20px;
+        width: 240px;
+        height: 45px; 
+        font-size: 15px;
+        margin: 20px;
         background-color: transparent;
         border-radius: 30px;
         border: 1px solid $theme-color;
@@ -284,25 +289,28 @@ $fontSize: 24px;
         cursor: pointer;
         outline: none;
        
-        @include respond-to(mobile) {
-            width: 240px;
-            height: 45px; 
-            font-size: 15px;
-            margin: 20px;
-        }
+       
         @include respond-to(wide-mobile) {
             width: 240px;
             height: 45px; 
-            font-size: 15px;
-            margin: 20px;
         }
         @include respond-to(tablets) {
             width: 170px;
-            height: 40px; 
+            height: 40px;
+            font-size: 20px; 
+            margin: 0;
         }
         @include respond-to(laptop) {
             width: 200px;
             height: 50px; 
+            font-size: 20px;
+            margin: 0;
+        }
+        @include respond-to(wide-laptop) {
+            width: 270px;
+            height: 60px; 
+            font-size: 20px;
+            margin: 0;
         }
     }
 }
@@ -313,16 +321,8 @@ $fontSize: 24px;
         display: -ms-flexbox; 
         display: -moz-flex;
         display: flex;  
-        @include flex-direction(row); 
-        @include respond-to(mobile) { 
-            @include flex-direction(column);       
-         }
-        @include respond-to(wide-mobile) {   
-            @include flex-direction(column);    
-        }
-        @include respond-to(tablets) {
-            @include flex-direction(column)  
-        }
+        @include flex-direction(column); 
+        
         @include respond-to(laptop) {
             @include flex-direction(row);  
         }
@@ -338,24 +338,30 @@ $fontSize: 24px;
         display: -ms-flexbox; 
         display: -moz-flex;
         display: flex; 
-        height: 115px;
+        @include flex-direction(column); 
+        margin-top: 65px; 
+        height: 175px;
         margin: 0;
+        padding-left: 0; 
         @include justify-content(center);
-        @include respond-to(mobile) {
-            @include flex-direction(column); 
-            margin-top: 65px; 
-            padding-left: 0;   
-        } 
+        
         @include respond-to(wide-mobile) {
             @include flex-direction(column); 
             margin-top: 25px; 
-            padding-left: 0;      
+                  
         } 
         @include respond-to(tablets) {
-            height: 70px;    
+            height: 70px; 
+            margin-top: 0;
+            @include flex-direction(row);     
         } 
         @include respond-to(laptop) {
-            height: 80px;  
+            height: 80px; 
+            @include flex-direction(row);   
+        }
+        @include respond-to(wide-laptop) {
+            height: 115px; 
+            @include flex-direction(row);   
         }
         @include align-items(center);
         
@@ -365,22 +371,12 @@ $fontSize: 24px;
             text-transform: capitalize;
             width: 145px;
             height: 100%;
-            padding-top: 50px;
-            font-size: 20px;
+            padding-top: 20px;
+            font-size: 13px;
             text-align: center;
             cursor: pointer;
             padding-left: 0;
-            @include respond-to(mobile) {
-                padding-top: 30px;
-                font-size: 17px;
-            }
-            &-link {
-                color:$font-color;
-                text-decoration: none;
-                &:hover{
-                    color: $light-color;
-                }
-            }
+                    
             @include respond-to(wide-mobile) {
                 padding: 10px;
                 font-size: 13px; 
@@ -395,6 +391,18 @@ $fontSize: 24px;
                 font-size: 12px;
                 padding-top: 30px; 
             }
+            @include respond-to(wide-laptop) {
+                width: 145px;
+                font-size: 20px;
+                padding-top: 50px; 
+            }
+            &-link {
+                color:$font-color;
+                text-decoration: none;
+                &:hover{
+                    color: $light-color;
+                }
+            }
         } 
         &-item:hover{
             color: $light-color;
@@ -406,30 +414,32 @@ $fontSize: 24px;
     }
     &_section-block{
         background-image: url('../img/bg.png');
-        padding-left: 100px;
-        padding-right: 100px;
-        @include respond-to(mobile) { 
-            @include flex-direction(column);  
-            padding-left: 50px;
-            padding-right: 50px;     
-         }
-        @include respond-to(wide-mobile) {   
-            @include flex-direction(column);  
-            padding-left: 50px;
-            padding-right: 50px;    
-        }
+        padding-left: 50px;
+        padding-right: 50px;
+        @include flex-direction(column);
+        
         @include respond-to(tablets) {
             font-size: 40px; 
-            padding-left: 70px;
-            padding-right: 70px;  
+            padding-left: 90px;
+            padding-right: 90px;  
+            @include flex-direction(row);
         }
         @include respond-to(laptop) {
             width: 60%; 
+            padding-left: 100px;
+            padding-right: 100px;
+            @include flex-direction(row);
+        }
+        @include respond-to(wide-laptop) {
+            padding-left: 100px;
+            padding-right: 100px; 
+            @include flex-direction(row);
         }
     }
     &_heading{
-        font-size: 80px;
-        margin-top: 200px;
+        margin-top: 80px;
+        font-size: 30px;  
+        text-align: center; 
         font-family: $main-font;
         width: 100%;
         @include hyphens(auto);
@@ -498,54 +508,53 @@ $fontSize: 24px;
                 -moz-transform: translateY(0%);
             }   
         }
-        @include respond-to(mobile) { 
-            margin-top: 135px;
-            font-size: 30px;  
-            text-align: center;      
-         }
+        
         @include respond-to(wide-mobile) {   
-            margin-top: 80px;
-            font-size: 30px;  
-            text-align: center;  
+            font-size: 30px;   
         }
         @include respond-to(tablets) {
             font-size: 40px; 
             margin-top: 100px;
-            text-align: center;
         }
         @include respond-to(laptop) {
             font-size: 40px; 
             margin-top: 80px;
+            text-align: start;
         }
         @include respond-to(wide-laptop) {
+            font-size: 80px;
+            margin-top: 200px;
+            text-align: start;
         } 
     }
     &_subheading{
-        font-size: $fontSize;
         font-family: $light-font;
-        width: 700px;
+        text-align: center;    
+        font-size: 16px;
+        width: auto;
+        padding-bottom: 50px;
         @include hyphens(auto);
         @include animation-name(slideDown);
         @include animation-duration(3s);
         @include animation-timing-function(ease-in-out);
-        @include respond-to(mobile) {   
-            text-align: center;    
-            font-size: 16px;
-            width: auto;
-        }
-        @include respond-to(wide-mobile) {   
-            text-align: center;    
+        
+        @include respond-to(wide-mobile) {      
             font-size: 18px;
-            width: auto;
         }
         @include respond-to(tablets) {
             font-size: 20px;
             width: 100%;  
-            text-align: center;
             padding-bottom: 100px;
         }
         @include respond-to(laptop) {
             width: 100%; 
+            font-size: $fontSize;
+            text-align: start;
+        }
+        @include respond-to(wide-laptop) {
+            width: 700px; 
+            font-size: $fontSize;
+            text-align: start;
         }
     }
     &_form-block{
@@ -558,11 +567,8 @@ $fontSize: 24px;
         display: -ms-flexbox; 
         display: -moz-flex;
         display: flex;
-        margin-top: 170px;
+        margin-top: 70px;
         @include flex-direction(column);
-        @include respond-to(mobile) {
-            margin-top: 70px;
-        }
         @include respond-to(wide-mobile) {
             margin-top: 80px;
         }
@@ -573,25 +579,21 @@ $fontSize: 24px;
         @include respond-to(laptop) {
             margin-top: 80px;
         }
+        @include respond-to(wide-laptop) {
+            margin-top: 170px;
+        }
 
     }
     &_contact-input{
-        width: 400px;
-        height: 60px;
-        margin: 30px 100px;
+        width: 300px;
+        height: 40px;
+        margin: 20px 40px;
         text-transform: capitalize;
         color: $font-color;
         padding: 20px;
         font-family: $light-font;
         outline: none;
-        @include respond-to(mobile) {
-            width: 300px;
-            height: 40px;
-            margin: 20px 40px;      
-        } 
         @include respond-to(wide-mobile) {
-            width: 300px;
-            height: 40px;
             margin: 20px 50px;      
         } 
         @include respond-to(laptop) {
@@ -599,20 +601,30 @@ $fontSize: 24px;
             height: 50px;
             margin: 20px 50px;
         }
+        @include respond-to(wide-laptop) {
+            width: 400px;
+            height: 60px;
+            margin: 30px 100px;
+        }
     }
     label{
         color: $light-color;
-        margin: 10px 100px;
-        font-size: $fontSize;
+        margin: 5px 75px;
+        font-size: 18px;
         font-family: $main-font;
         text-transform: capitalize;
-        @include respond-to(mobile) {
-            margin: 5px 75px;
-            font-size: 16px;      
-        } 
-        @include respond-to(wide-mobile) {
+        
+        @include respond-to(tablets) {
             margin: 5px 75px;
             font-size: 18px;      
+        } 
+        @include respond-to(laptop) {
+            margin: 5px 75px;
+            font-size: 18px;      
+        } 
+        @include respond-to(wide-laptop) {
+            margin: 10px 100px;
+            font-size: $fontSize;     
         } 
         @include animation-name(slideLeft);
         @include animation-duration(3s);
@@ -670,25 +682,17 @@ $fontSize: 24px;
     display: none;
     position: relative;
     z-index: 300; 
-    width: 630px;
-    height: 575px;
+    width: 250px;
+    height: 350px;
+    font-size: 20px;
     top: 50%;
     left: 50%;
     margin-right: -50%;
     @include transform(translate(-50%, -50%));
-    // transform: translate(-50%, -50%);
     top: 50%;
     background-color: $light-color;
    
-    @include respond-to(mobile) {
-        width: 250px;
-        height: 350px;
-        font-size: 20px;
-    }
-    @include respond-to(wide-mobile) {
-        width: 250px;
-        height: 350px;
-    }
+    
     @include respond-to(tablets) {
         width: 300px;
         height: 400px;
@@ -697,20 +701,25 @@ $fontSize: 24px;
         width: 550px;
         height: 500px;
     }
+    @include respond-to(wide-laptop) {
+        width: 630px;
+        height: 575px;
+    }
     &-heading{
         text-align: center;
         font-family: $main-font;
         text-transform: capitalize;
         padding-top: 10%;
-        font-size: $fontSize;
-        @include respond-to(mobile) {
-            font-size: 18px;
-        }
-        @include respond-to(wide-mobile) {
-            font-size: 18px;
-        }
+        font-size: 18px;
+       
         @include respond-to(tablets) {
             font-size: 20px;
+        }
+        @include respond-to(laptop) {
+            font-size: $fontSize;
+        }
+        @include respond-to(wide-laptop) {
+            font-size: $fontSize;
         }
     }
     &-input{
@@ -754,23 +763,20 @@ $fontSize: 24px;
 }
 .close-btn{
     position: fixed;
-    top: 40px;
-    right: 40px;
+    top: 20px;
+    right: 20px; 
     cursor: pointer;
     outline: none;
     border: none;
     background-color: transparent;
-    @include respond-to(mobile) {
-        top: 20px;
-        right: 20px; 
+    
+    @include respond-to(laptop) {
+        top: 40px;
+        right: 40px; 
     }
-    @include respond-to(wide-mobile) {
-        top: 20px;
-        right: 20px; 
-    }
-    @include respond-to(tablets) {
-        top: 20px;
-        right: 20px; 
+    @include respond-to(wide-laptop) {
+        top: 40px;
+        right: 40px; 
     }
 }
 .social-networks{
@@ -793,20 +799,26 @@ $fontSize: 24px;
 }
 &_advantages-heading{
     text-transform: capitalize;
-    font-size: 50px;
     font-family: $main-font;
-    margin-top: 160px;
+    margin-top: 40px;  
+    font-size: 40px;
     text-align: center;
-    @include respond-to(mobile) {
-        margin-top: 40px;  
-        font-size: 40px;
-   }
+    
     @include respond-to(wide-mobile) {
         margin-top: 80px;  
    }
-    @include respond-to(laptop) {
-        margin-top: 80px;  
+    @include respond-to(tablets) {
+        margin-top: 80px; 
+        font-size: 50px; 
    }
+   @include respond-to(laptop) {
+        margin-top: 80px; 
+        font-size: 50px; 
+   }  
+   @include respond-to(wide-laptop) {
+        margin-top: 160px; 
+        font-size: 50px; 
+    }
 }
 &_advantages-container{
     display: -webkit-flex; 
@@ -815,52 +827,42 @@ $fontSize: 24px;
     display: flex;
     @include align-items(center);
     @include flex-direction(column);
-    padding-bottom: 50px;
-    @include respond-to(mobile) {
-        @include flex-direction(column); 
-        padding-bottom: 0;  
-    }
-    @include respond-to(wide-mobile) {
-        @include flex-direction(column); 
-        padding-bottom: 0;  
-    }
-    @include respond-to(tablets) {
-        @include flex-direction(column); 
-        padding-bottom: 0;   
-    } 
+    padding-bottom: 0;
+    
+    
     @include respond-to(laptop) {
-        @include flex-direction(row);  
+        @include flex-direction(row); 
+        padding-bottom: 50px; 
    }
     @include respond-to(wide-laptop) {
-        @include flex-direction(row);  
+        @include flex-direction(row); 
+        padding-bottom: 50px; 
     } 
 }
 .image-container img{
     position: relative;
-    &:first-child{
-        top: 50px;
-        left: 70px;
-        width: 50%;
-        @include respond-to(wide-mobile) {
-            left: 80px;
-            width: 60%;   
-        }
-        @include respond-to(tablets) {
-            top: 65px;
-            left: auto;
-            width: auto;  
-        }
-        @include respond-to(laptop) {
-            top: 40px;
-            left: 100px;
-            width: 100%; 
-        } 
-        @include respond-to(wide-laptop) {
-            top: 100px;
-            left: 150px;
-            width: auto;  
-        } 
+    top: 50px;
+    left: 80px;
+    width: 50%;
+    @include respond-to(wide-mobile) {
+        left: 85px;
+        width: 60%;   
     }
+    @include respond-to(tablets) {
+        top: 65px;
+        left: auto;
+        width: auto;  
+        }
+    @include respond-to(laptop) {
+        top: 40px;
+        left: 100px;
+        width: 100%; 
+        } 
+    @include respond-to(wide-laptop) {
+        top: 100px;
+        left: 150px;
+        width: auto;  
+    } 
 }
 .information-container{
     margin-left: 200px;
@@ -937,19 +939,13 @@ $fontSize: 24px;
     }
 }
 .price-section{
-    margin-top: 140px;
+    margin-top: 0;
 
-    @include respond-to(mobile) {
-        margin-top: 0;
-     }
-     @include respond-to(wide-mobile) {
-        margin-top: 0;
-     }
-    @include respond-to(tablets) {
-        margin-top: 0;
-     }
-     @include respond-to(laptop) {
+    @include respond-to(laptop) {
         margin-top: 70px;
+     }
+    @include respond-to(wide-laptop) {
+        margin-top: 140px;
      }
     &_heading{
         font-family: $main-font;
@@ -968,11 +964,15 @@ $fontSize: 24px;
     display: -moz-flex;  
     display: flex;
     @include justify-content(center);
-    @include respond-to(mobile) {
-        @include flex-direction(column)
+    @include flex-direction(column);
+    @include respond-to(tablets) {
+        @include flex-direction(row)
      }
-    @include respond-to(wide-mobile) {
-        @include flex-direction(column)
+    @include respond-to(laptop) {
+        @include flex-direction(row)
+     }
+     @include respond-to(wide-laptop) {
+        @include flex-direction(row)
      }
     &_block{
         width: 450px;
@@ -1033,21 +1033,15 @@ $fontSize: 24px;
              font-family: $main-font;
              color: $light-color;
              border: none;
-             width: 320px;
-             height: 70px;
-             font-size: $fontSize;
+             width: 200px;
+             height: 50px;
+             font-size: 18px;
+             bottom: -45px;
              position: relative;
              left: 50%;
              margin-right: -50%;
              @include transform(translate(-50%, -50%));
-            //  transform: translate(-50%, -50%);
-             bottom: -65px;
-             @include respond-to(mobile) {
-                width: 200px;
-                height: 50px;
-                font-size: 18px;
-                bottom: -45px;
-             }
+             
              @include respond-to(wide-mobile) {
                 width: 250px;
                 height: 55px;
@@ -1056,6 +1050,20 @@ $fontSize: 24px;
              }
              @include respond-to(tablets) {
                 width: 280px;
+                bottom: -65px;
+                height: 70px;
+                font-size: $fontSize;
+             }
+             @include respond-to(laptop) {
+                width: 320px;
+                height: 70px;
+                font-size: $fontSize;
+                bottom: -65px;
+             }
+             @include respond-to(wide-laptop) {
+                width: 320px;
+                height: 70px;
+                font-size: $fontSize;
                 bottom: -65px;
              }
          }
@@ -1108,18 +1116,19 @@ $fontSize: 24px;
 }
 .swiper-container {
     width: 100%;
-    height: 100%;
+    height: 110%;
     margin-left: auto;
     margin-right: auto;
-    @include respond-to(mobile) {
-        height: 110%; 
-    } 
+    
     @include respond-to(wide-mobile) {
         height: 150%;
    }
-   @include respond-to(tablets) {
-    height: 110%;
-}
+    @include respond-to(laptop) {
+        height: 100%; 
+    }
+    @include respond-to(wide-laptop) {
+        height: 100%; 
+    }
   }
 
   .swiper-slide {
@@ -1164,16 +1173,12 @@ $fontSize: 24px;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    padding: 40px 250px;
+    padding: 30px 25px;
     @include justify-content(space-between);
     background-color: $dark-color;
-    height: 130px;
-    margin-top: 150px;
-    @include respond-to(mobile) {
-        padding: 30px 25px;
-        height: 90px;
-        margin-top: 50px;
-     }
+    height: 90px;
+    margin-top: 50px;;
+    
     @include respond-to(wide-mobile) {
         padding: 35px 50px;
         height: 105px;
@@ -1189,19 +1194,28 @@ $fontSize: 24px;
         margin-top: 100px;  
         height: 90px;
    }
+    @include respond-to(wide-laptop) {
+        padding: 40px 250px;
+        margin-top: 150px;  
+        height: 130px;
+}
     &_btn{
         display: flex;
         @include align-items(center);
         font-family: $light-font;
-        font-size: $fontSize;
+        font-size: 18px;
         color: $light-color;
         text-transform: capitalize;
-        @include respond-to(mobile) {
-            font-size: 18px;
+        @include respond-to(tablets) {
+            font-size: $fontSize;
          }
-        @include respond-to(wide-mobile) {
-            font-size: 18px;
+        @include respond-to(laptop) {
+            font-size: $fontSize;
          }
+         @include respond-to(wide-laptop) {
+            font-size: $fontSize;
+         }
+        
     }
     &_btn a{
         cursor: pointer;

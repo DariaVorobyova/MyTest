@@ -44,31 +44,28 @@ function parallax(event){
     let distanceY = (screen.height / 2 - event.clientY) * speed;
     images.style.transform = `translate(${distanceX}px, ${distanceY}px)`;
   });
-}
-
-  
+} 
 document.addEventListener('mousemove', parallax);
 
 
-  let overlay = document.getElementById('overlay');
-  let formPopup = document.getElementById('formPopup');
+let overlay = document.getElementById('overlay');
+let formPopup = document.getElementById('formPopup');
 
   function openTheForm(){
     overlay.classList.add('open');
     formPopup.classList.add('open');
   };
 
-  document.getElementById('orderBtn').addEventListener('click', openTheForm);
-
+document.getElementById('orderBtn').addEventListener('click', openTheForm);
 
  document.getElementById('closeForm').onclick = function (){
-  overlay.classList.remove('open');
-  formPopup.classList.remove('open');
+ overlay.classList.remove('open');
+ formPopup.classList.remove('open');
 }
 
 let priceBtn = document.querySelectorAll('.price-cards_block-btn').forEach(btn => {
   btn.addEventListener('click', openTheForm);
-})
+});
 
 
 
